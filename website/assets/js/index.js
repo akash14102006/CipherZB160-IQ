@@ -56,33 +56,33 @@
     // Enterprise Repository Interactive Mapping
     const repositoryFiles = {
       'reports': [
-        { model: 'lightgbm', name: 'lightgbm_metrics.csv', path: 'reports/model_performance/lightgbm/metrics.csv', size: '2 KB', type: 'CSV Document' },
-        { model: 'lightgbm', name: 'lightgbm_classification_report.csv', path: 'reports/model_performance/lightgbm/classification_report.csv', size: '1 KB', type: 'CSV Document' },
-        { model: 'catboost', name: 'catboost_metrics.csv', path: 'reports/model_performance/catboost/metrics.csv', size: '2 KB', type: 'CSV Document' },
-        { model: 'catboost', name: 'catboost_classification_report.csv', path: 'reports/model_performance/catboost/classification_report.csv', size: '1 KB', type: 'CSV Document' },
-        { model: 'xgboost', name: 'xgboost_metrics.csv', path: 'reports/model_performance/xgboost/metrics.csv', size: '2 KB', type: 'CSV Document' },
-        { model: 'xgboost', name: 'xgboost_classification_report.csv', path: 'reports/model_performance/xgboost/classification_report.csv', size: '1 KB', type: 'CSV Document' },
-        { model: 'isolation_forest', name: 'isolation_forest_metrics.csv', path: 'reports/model_performance/isolation_forest/metrics.csv', size: '1 KB', type: 'CSV Document' },
-        { model: 'ALL', name: 'champion_model_report.csv', path: 'reports/governance/champion_model_report.csv', size: '3 KB', type: 'CSV Document' },
-        { model: 'ALL', name: 'enterprise_model_comparison.csv', path: 'reports/governance/enterprise_model_comparison.csv', size: '4 KB', type: 'CSV Document' },
-        { model: 'ALL', name: 'model_governance_report.csv', path: 'reports/governance/model_governance_report.csv', size: '8 KB', type: 'CSV Document' }
+        { model: 'lightgbm', name: 'lightgbm_metrics.csv', path: 'website/assets/visualization/lightgbm/metrics.csv', size: '2 KB', type: 'CSV Document' },
+        { model: 'lightgbm', name: 'lightgbm_classification_report.csv', path: 'website/assets/visualization/lightgbm/classification_report.csv', size: '1 KB', type: 'CSV Document' },
+        { model: 'catboost', name: 'catboost_metrics.csv', path: 'website/assets/visualization/catboost/metrics.csv', size: '2 KB', type: 'CSV Document' },
+        { model: 'catboost', name: 'catboost_classification_report.csv', path: 'website/assets/visualization/catboost/classification_report.csv', size: '1 KB', type: 'CSV Document' },
+        { model: 'xgboost', name: 'xgboost_metrics.csv', path: 'website/assets/visualization/xgboost/metrics.csv', size: '2 KB', type: 'CSV Document' },
+        { model: 'xgboost', name: 'xgboost_classification_report.csv', path: 'website/assets/visualization/xgboost/classification_report.csv', size: '1 KB', type: 'CSV Document' },
+        { model: 'isolation_forest', name: 'isolation_forest_metrics.csv', path: 'website/assets/visualization/isolation_forest/metrics.csv', size: '1 KB', type: 'CSV Document' },
+        { model: 'ALL', name: 'champion_model_report.csv', path: 'website/assets/visualization/champion_model_report.csv', size: '3 KB', type: 'CSV Document' },
+        { model: 'ALL', name: 'enterprise_model_comparison.csv', path: 'website/assets/visualization/enterprise_model_comparison.csv', size: '4 KB', type: 'CSV Document' },
+        { model: 'ALL', name: 'model_governance_report.csv', path: 'website/assets/visualization/model_governance_report.csv', size: '8 KB', type: 'CSV Document' }
       ],
       'visualizations': [
-        { model: 'lightgbm', name: 'lightgbm_roc_curve.png', path: 'reports/model_performance/lightgbm/visualizations/roc_curve.png', size: '45 KB', type: 'Image File' },
-        { model: 'lightgbm', name: 'lightgbm_pr_curve.png', path: 'reports/model_performance/lightgbm/visualizations/pr_curve.png', size: '42 KB', type: 'Image File' },
-        { model: 'lightgbm', name: 'lightgbm_calibration_curve.png', path: 'reports/model_performance/lightgbm/visualizations/calibration_curve.png', size: '38 KB', type: 'Image File' },
-        { model: 'lightgbm', name: 'lightgbm_lift_chart.png', path: 'reports/model_performance/lightgbm/visualizations/lift_chart.png', size: '40 KB', type: 'Image File' },
-        { model: 'catboost', name: 'catboost_roc_curve.png', path: 'reports/model_performance/catboost/visualizations/roc_curve.png', size: '46 KB', type: 'Image File' },
-        { model: 'catboost', name: 'catboost_pr_curve.png', path: 'reports/model_performance/catboost/visualizations/pr_curve.png', size: '43 KB', type: 'Image File' },
-        { model: 'catboost', name: 'catboost_calibration_curve.png', path: 'reports/model_performance/catboost/visualizations/calibration_curve.png', size: '39 KB', type: 'Image File' },
-        { model: 'catboost', name: 'catboost_lift_chart.png', path: 'reports/model_performance/catboost/visualizations/lift_chart.png', size: '41 KB', type: 'Image File' },
-        { model: 'xgboost', name: 'xgboost_roc_curve.png', path: 'reports/model_performance/xgboost/visualizations/roc_curve.png', size: '45 KB', type: 'Image File' },
-        { model: 'xgboost', name: 'xgboost_pr_curve.png', path: 'reports/model_performance/xgboost/visualizations/pr_curve.png', size: '42 KB', type: 'Image File' },
-        { model: 'xgboost', name: 'xgboost_calibration_curve.png', path: 'reports/model_performance/xgboost/visualizations/calibration_curve.png', size: '38 KB', type: 'Image File' },
-        { model: 'xgboost', name: 'xgboost_lift_chart.png', path: 'reports/model_performance/xgboost/visualizations/lift_chart.png', size: '40 KB', type: 'Image File' },
-        { model: 'isolation_forest', name: 'isolation_forest_roc_curve.png', path: 'reports/model_performance/isolation_forest/visualizations/roc_curve.png', size: '35 KB', type: 'Image File' },
-        { model: 'isolation_forest', name: 'isolation_forest_pr_curve.png', path: 'reports/model_performance/isolation_forest/visualizations/pr_curve.png', size: '32 KB', type: 'Image File' },
-        { model: 'isolation_forest', name: 'isolation_forest_score_distribution.png', path: 'reports/model_evaluation/isolation_forest/isolation_forest_score_distribution.png', size: '48 KB', type: 'Image File' }
+        { model: 'lightgbm', name: 'lightgbm_roc_curve.png', path: 'website/assets/visualization/LightGBM_visualizations/roc_curve.png', size: '45 KB', type: 'Image File' },
+        { model: 'lightgbm', name: 'lightgbm_pr_curve.png', path: 'website/assets/visualization/LightGBM_visualizations/pr_curve.png', size: '42 KB', type: 'Image File' },
+        { model: 'lightgbm', name: 'lightgbm_calibration_curve.png', path: 'website/assets/visualization/LightGBM_visualizations/calibration_curve.png', size: '38 KB', type: 'Image File' },
+        { model: 'lightgbm', name: 'lightgbm_lift_chart.png', path: 'website/assets/visualization/LightGBM_visualizations/lift_chart.png', size: '40 KB', type: 'Image File' },
+        { model: 'catboost', name: 'catboost_roc_curve.png', path: 'website/assets/visualization/CatBoost_visualizations/roc_curve.png', size: '46 KB', type: 'Image File' },
+        { model: 'catboost', name: 'catboost_pr_curve.png', path: 'website/assets/visualization/CatBoost_visualizations/pr_curve.png', size: '43 KB', type: 'Image File' },
+        { model: 'catboost', name: 'catboost_calibration_curve.png', path: 'website/assets/visualization/CatBoost_visualizations/calibration_curve.png', size: '39 KB', type: 'Image File' },
+        { model: 'catboost', name: 'catboost_lift_chart.png', path: 'website/assets/visualization/CatBoost_visualizations/lift_chart.png', size: '41 KB', type: 'Image File' },
+        { model: 'xgboost', name: 'xgboost_roc_curve.png', path: 'website/assets/visualization/XGBoost_Visualization/XGBoost ROC Curve.png', size: '45 KB', type: 'Image File' },
+        { model: 'xgboost', name: 'xgboost_pr_curve.png', path: 'website/assets/visualization/XGBoost_Visualization/XGBoost ROC Curve.png', size: '42 KB', type: 'Image File' },
+        { model: 'xgboost', name: 'xgboost_calibration_curve.png', path: 'website/assets/visualization/XGBoost_Visualization/XGBoost ROC Curve.png', size: '38 KB', type: 'Image File' },
+        { model: 'xgboost', name: 'xgboost_lift_chart.png', path: 'website/assets/visualization/XGBoost_Visualization/XGBoost ROC Curve.png', size: '40 KB', type: 'Image File' },
+        { model: 'isolation_forest', name: 'isolation_forest_roc_curve.png', path: 'website/assets/visualization/Isolation_forest_visualizations/roc_curve.png', size: '35 KB', type: 'Image File' },
+        { model: 'isolation_forest', name: 'isolation_forest_pr_curve.png', path: 'website/assets/visualization/Isolation_forest_visualizations/pr_curve.png', size: '32 KB', type: 'Image File' },
+        { model: 'isolation_forest', name: 'isolation_forest_score_distribution.png', path: 'website/assets/visualization/Isolation_forest_visualizations/isolation_forest_score_distribution.png', size: '48 KB', type: 'Image File' }
       ],
       'models': [
         { model: 'lightgbm', name: 'lightgbm_model.txt', path: 'models/challenger/lightgbm_model.txt', size: '1.2 MB', type: 'Model Binary', fw: 'LightGBM', ver: '1.0', champion: false },
@@ -519,7 +519,7 @@
         const hp = await import('https://cdn.jsdelivr.net/npm/hyparquet/+esm');
         
         // 1. Fetch risk_engine_output.parquet
-        const riskBuf = await fetch('data/05_output/risk_engine_output.parquet').then(r => r.arrayBuffer());
+        const riskBuf = await fetch('../data/05_output/risk_engine_output.parquet').then(r => r.arrayBuffer());
         const riskMeta = await hp.parquetMetadataAsync(riskBuf);
         const riskCols = riskMeta.schema.map(s => s.name).slice(1);
         
@@ -547,7 +547,7 @@
         });
 
         // 2. Fetch investigator_dataset.parquet
-        const invBuf = await fetch('data/05_output/investigator_dataset.parquet').then(r => r.arrayBuffer());
+        const invBuf = await fetch('../data/05_output/investigator_dataset.parquet').then(r => r.arrayBuffer());
         const invMeta = await hp.parquetMetadataAsync(invBuf);
         const invCols = invMeta.schema.map(s => s.name).slice(1);
         
@@ -585,7 +585,7 @@
 
         // 3. Fetch SHAP Explainability CSV
         await new Promise((resolve, reject) => {
-          Papa.parse('reports/explainability/shap_local_explanations.csv', {
+          Papa.parse('../reports/explainability/shap_local_explanations.csv', {
             download: true,
             header: true,
             complete: (results) => {
@@ -735,16 +735,36 @@
     };
 
     const renderMiniCurves = (prefix, aucVal, color) => {
-      // Instead of plotting mock data, render the actual generated PNG artifacts from the model pipeline
-      const basePath = `reports/model_performance/${prefix}/visualizations`;
+      let folder = '';
+      if (prefix === 'lightgbm') folder = 'LightGBM_visualizations';
+      else if (prefix === 'catboost') folder = 'CatBoost_visualizations';
+      else if (prefix === 'xgboost') folder = 'XGBoost_Visualization';
+      else if (prefix === 'isolation_forest') folder = 'Isolation_forest_visualizations';
+      
+      const basePath = `assets/visualization/${folder}`;
       
       const injectImage = (divId, fileName) => {
         const div = document.getElementById(divId);
         if (div) {
-          div.innerHTML = `<img src="${basePath}/${fileName}" class="img-fluid rounded" style="max-height: 100%; width: auto; cursor: zoom-in;" onclick="openLightbox('${basePath}/${fileName}', '${fileName}')" alt="${fileName}" />`;
+          let mappedFile = fileName;
+          if (prefix === 'xgboost') {
+            if (fileName === 'roc_curve.png') mappedFile = 'XGBoost ROC Curve.png';
+            else if (fileName === 'pr_curve.png') mappedFile = 'XGBoost PR Curve.png';
+            else if (fileName === 'calibration_curve.png') mappedFile = 'XGBoost Calibration Curve.png';
+            else if (fileName === 'lift_chart.png') mappedFile = 'XGBoost Lift Chart.png';
+            else if (fileName === 'gain_chart.png') mappedFile = 'XGBoost Gain Chart.png';
+          }
+          const finalPath = `${basePath}/${mappedFile}`;
+          const onerrorAttr = ` onerror="this.onerror=null; this.src='assets/images/cipher-logo.png'; this.alt='Visualization Not Available'; this.style.opacity='0.2'; this.style.padding='2rem';" `;
+          div.innerHTML = `<img src="${finalPath}" class="img-fluid rounded" style="max-height: 100%; width: auto; cursor: zoom-in;" onclick="openLightbox('${finalPath}', '${mappedFile}')" alt="${mappedFile}"${onerrorAttr} />`;
         }
       };
 
+      injectImage(`${prefix}-curve-roc`, 'roc_curve.png');
+      injectImage(`${prefix}-curve-pr`, 'pr_curve.png');
+      injectImage(`${prefix}-curve-calib`, 'calibration_curve.png');
+      injectImage(`${prefix}-curve-lift`, 'lift_chart.png');
+    };
       injectImage(`${prefix}-curve-roc`, 'roc_curve.png');
       injectImage(`${prefix}-curve-pr`, 'pr_curve.png');
       injectImage(`${prefix}-curve-calib`, 'calibration_curve.png');
@@ -757,10 +777,10 @@
 
       try {
         const [rocCsv, prCsv, calCsv, gainCsv] = await Promise.all([
-          fetch('reports/model_performance/xgboost/roc_curve.csv').then(r => r.text()),
-          fetch('reports/model_performance/xgboost/pr_curve.csv').then(r => r.text()),
-          fetch('reports/model_performance/xgboost/calibration_curve.csv').then(r => r.text()),
-          fetch('reports/model_performance/xgboost/gain_chart.csv').then(r => r.text())
+          fetch('assets/visualization/XGBoost_Visualization/roc_curve.csv').then(r => r.text()),
+          fetch('assets/visualization/XGBoost_Visualization/pr_curve.csv').then(r => r.text()),
+          fetch('assets/visualization/XGBoost_Visualization/calibration_curve.csv').then(r => r.text()),
+          fetch('assets/visualization/XGBoost_Visualization/gain_chart.csv').then(r => r.text())
         ]);
 
         const parseCSV = (text) => {
