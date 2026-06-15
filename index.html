@@ -17,17 +17,17 @@
   
   <style>
     :root {
-      --primary: #10B981;       /* Graphify Emerald Green */
+      --primary: #10B981;
       --primary-glow: rgba(16, 185, 129, 0.25);
-      --success: #10B981;       /* Emerald */
-      --warning: #F59E0B;       /* Amber Gold */
-      --danger: #EF4444;        /* Crimson Red */
-      --background: #030712;    /* Obsidian Black */
-      --card-bg: rgba(11, 15, 25, 0.75); /* Glass Navy Slate */
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --background: #030712;
+      --card-bg: rgba(11, 15, 25, 0.75);
       --border-color: rgba(16, 185, 129, 0.15);
-      --text: #F3F4F6;          /* Off-White Gray 100 */
-      --text-muted: #cbd5e1;    /* Slate Gray 300 for better contrast */
-      --accent: #8B5CF6;        /* Violet */
+      --text: #F3F4F6;
+      --text-muted: #cbd5e1;
+      --accent: #8B5CF6;
       --glow-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
       --font-headings: 'Space Grotesk', sans-serif;
       --font-body: 'Space Grotesk', sans-serif;
@@ -62,18 +62,19 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 4px;
+      height: 2px;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       z-index: 1100;
       width: 0%;
       transition: width 0.1s ease-out;
+      opacity: 0.7;
     }
 
     /* Top Horizontal Navbar */
     .navbar {
-      background-color: #050811 !important;
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      background-color: #080c16 !important;
+      border-bottom: 1px solid var(--primary-glow);
+      box-shadow: 0 1px 15px rgba(16, 185, 129, 0.05);
     }
     
     .navbar-brand {
@@ -93,8 +94,8 @@
       font-size: 0.85rem;
       font-weight: 500;
       transition: all 0.2s ease;
-      border-bottom: 2px solid transparent;
       padding-bottom: 0.25rem;
+      border-bottom: 2px solid transparent;
     }
 
     .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
@@ -112,37 +113,22 @@
       min-height: calc(100vh - 70px);
     }
 
-    /* Premium Cyber Cards */
+    /* Enterprise Cards */
     .cyber-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 1.5rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
-    }
-
-    .cyber-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--primary), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.5s ease;
-    }
-
-    .cyber-card:hover::before {
-      transform: translateX(100%);
+      overflow: visible;
+      backdrop-filter: blur(8px);
     }
 
     .cyber-card:hover {
-      transform: translateY(-4px);
       border-color: var(--primary);
       box-shadow: var(--glow-shadow);
+      transform: translateY(-2px);
     }
 
     /* Custom KPI styling */
@@ -167,45 +153,46 @@
 
     .section-header {
       margin-bottom: 2rem;
-      border-left: 4px solid var(--primary);
-      padding-left: 1rem;
+      padding-left: 15px;
+      border-left: 3px solid var(--primary);
     }
 
     .section-title {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #FFF;
       margin-bottom: 0.25rem;
+      font-family: var(--font-headings);
     }
 
     .section-subtitle {
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     /* Custom badges */
     .badge-status {
       font-size: 0.65rem;
       font-weight: 600;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
       border: 1px solid transparent;
     }
 
     .status-champ {
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(16, 185, 129, 0.15);
       color: var(--primary);
       border-color: var(--primary);
     }
 
     .status-chall {
-      background: rgba(245, 158, 11, 0.1);
-      color: var(--warning);
-      border-color: var(--warning);
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     .status-monitor {
-      background: rgba(139, 92, 246, 0.1);
+      background: rgba(139, 92, 246, 0.15);
       color: var(--accent);
       border-color: var(--accent);
     }
@@ -213,32 +200,32 @@
     /* AG Grid styling overrides */
     .ag-theme-balham-dark {
       --ag-background-color: #0B0F19;
-      --ag-header-background-color: #050811;
+      --ag-header-background-color: #080c16;
       --ag-odd-row-background-color: #0B0F19;
       --ag-row-hover-color: rgba(16, 185, 129, 0.08);
       --ag-foreground-color: #F3F4F6;
-      --ag-header-foreground-color: #10B981;
-      --ag-border-color: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.15);
-      border-radius: 8px;
+      --ag-header-foreground-color: var(--primary);
+      --ag-border-color: var(--border-color);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
     }
 
     .btn-cyber {
-      background: linear-gradient(135deg, var(--primary), #059669);
+      background: var(--primary);
       color: #FFF;
       border: none;
-      border-radius: 30px;
-      padding: 0.6rem 1.5rem;
+      border-radius: 4px;
+      padding: 0.5rem 1.25rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
     }
 
     .btn-cyber:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+      background: #059669;
       color: #FFF;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
     }
 
     /* Custom form styling */
@@ -252,12 +239,6 @@
     .table-dark .table-danger td, 
     .table-dark .table-danger th {
       color: var(--text) !important;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
     }
 
     /* Print styling */
@@ -284,10 +265,10 @@
       background: rgba(11, 15, 25, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
       margin: -2.5rem -1.5rem 2.5rem -1.5rem;
       padding: 1.25rem 2.5rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     /* Segmented filter styles */
@@ -321,22 +302,20 @@
       background-color: var(--primary) !important;
       color: #030712 !important;
       font-weight: bold;
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
     }
 
     /* Filter Chips Styles */
     .filter-chip {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 4px;
-      color: var(--primary);
+      color: var(--text-muted);
       font-family: var(--font-mono);
       font-size: 0.7rem;
       padding: 0.2rem 0.5rem;
       display: flex;
       align-items: center;
       gap: 6px;
-      animation: fadeIn 0.3s ease-out;
     }
     .filter-chip span {
       cursor: pointer;
@@ -355,12 +334,12 @@
       font-size: 1.1rem;
     }
     .leaderboard-item {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
     }
     .leaderboard-item:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--glow-shadow);
       border-color: var(--primary) !important;
+      box-shadow: var(--glow-shadow);
+      transform: translateY(-2px);
     }
 
     /* Timeline and stepper styles */
@@ -374,8 +353,8 @@
     /* Modal file list item styles */
     .modal-file-item {
       background: rgba(255, 255, 255, 0.015);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
+      border: 1px solid rgba(16, 185, 129, 0.08);
+      border-radius: 6px;
       padding: 0.75rem 1rem;
       margin-bottom: 0.5rem;
       display: flex;
@@ -390,36 +369,40 @@
     .ag-row {
       cursor: pointer;
     }
-    /* Theme Toggle Switch Animations */
+    /* Compliance Operations dropdown fix */
+    .dropdown {
+      position: relative;
+      z-index: 99999;
+    }
+    .cyber-card {
+      overflow: visible;
+    }
+    /* Theme Toggle Switch */
     .theme-toggle {
       background: rgba(16, 185, 129, 0.15);
       border: 1px solid var(--primary);
-      border-radius: 30px;
-      width: 64px;
-      height: 32px;
+      border-radius: 20px;
+      width: 56px;
+      height: 28px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 6px;
-      transition: background 0.5s ease, box-shadow 0.5s ease;
+      padding: 0 5px;
+      transition: all 0.3s ease;
       position: relative;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-    }
-    .theme-toggle:hover {
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
     }
     .theme-toggle .toggle-thumb {
       position: absolute;
       top: 3px;
       left: 3px;
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       background: var(--primary);
       border-radius: 50%;
-      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: transform 0.3s ease;
       z-index: 1;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
     .theme-toggle i {
       font-size: 0.75rem;
@@ -437,10 +420,11 @@
     body.light-theme {
       --background: #f8fafc;
       --card-bg: rgba(255, 255, 255, 0.9);
-      --border-color: rgba(16, 185, 129, 0.4);
+      --border-color: rgba(16, 185, 129, 0.15);
       --text: #0f172a;
       --text-muted: #475569;
-      --primary-glow: rgba(16, 185, 129, 0.15);
+      --primary-glow: rgba(16, 185, 129, 0.1);
+      --glow-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
     }
     body.light-theme .theme-toggle .toggle-thumb {
       transform: translateX(32px);
@@ -494,11 +478,12 @@
       --ag-row-border-color: #e2e8f0;
       --ag-odd-row-background-color: #f1f5f9;
       --ag-data-color: #0f172a;
-      --ag-header-foreground-color: #0f172a;
+      --ag-header-foreground-color: var(--primary);
+      --ag-border-color: var(--border-color);
     }
     
     body, .cyber-card, .navbar, .text-white, .bg-dark, .bg-black, .table {
-      transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
   </style>
 </head>
@@ -514,6 +499,7 @@
         <i class="fa-solid fa-shield-halved text-success"></i>
         <span>CipherZB160 IQ</span>
       </a>
+      <span class="small text-muted d-none d-md-inline" style="font-family: var(--font-mono); font-size: 0.6rem; margin-left: -8px;">Fraud Intelligence Platform</span>
       
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav gap-4">
@@ -539,8 +525,8 @@
           <i class="fa-solid fa-sun sun-icon"></i>
         </div>
         <div class="d-flex align-items-center gap-2">
-          <span class="d-inline-block rounded-circle bg-success" style="width: 8px; height: 8px; box-shadow: 0 0 8px var(--success); animation: pulse 1.5s infinite;"></span>
-          <span class="small text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.7rem;">SURVEILLANCE.LIVE</span>
+          <span class="d-inline-block rounded-circle bg-success" style="width: 6px; height: 6px;"></span>
+          <span class="small text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.7rem;">LIVE</span>
         </div>
       </div>
     </div>
@@ -557,15 +543,15 @@
         <!-- FIRST COMPONENT: Enterprise Leaderboard -->
         <div class="row g-4 mb-4">
           <div class="col-12">
-            <div class="cyber-card" style="border: 1px solid var(--primary); box-shadow: var(--glow-shadow);">
+            <div class="cyber-card" style="border: 1px solid rgba(255,255,255,0.08);">
               <h5 class="mb-4 text-white" style="font-family: var(--font-headings); letter-spacing: 0.5px; text-transform: uppercase;">
-                <span style="color: var(--primary); font-family: var(--font-mono);">//</span> ENTERPRISE LEADERBOARD
+                <span style="color: var(--primary); margin-right: 6px;">//</span> ENTERPRISE LEADERBOARD
               </h5>
               
               <div class="row g-3">
                 <!-- Card 1: Champion LightGBM -->
                 <div class="col-12 col-md-6 col-xl-3">
-                  <div class="leaderboard-item border-primary-glow" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 1.25rem;">
+                  <div class="leaderboard-item" style="background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 1.25rem;">
                     <div class="d-flex justify-content-between align-items-start mb-2">
                       <div class="d-flex align-items-center gap-2">
                         <span class="leaderboard-rank text-success">#01</span>
@@ -584,8 +570,8 @@
                     </div>
                     <div class="row g-2 text-center text-muted small mt-2 pt-2 border-top border-secondary" style="font-family: var(--font-mono); font-size: 0.7rem;">
                       <div class="col-3"><div class="fw-bold text-white">0.999</div>ROC</div>
+                      <div class="col-3"><div class="fw-bold text-white">0.972</div>ACC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.857</div>F1</div>
-                      <div class="col-3"><div class="fw-bold text-white">0.821</div>PRC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.750</div>REC</div>
                     </div>
                   </div>
@@ -607,13 +593,13 @@
                         <span class="text-warning fw-bold">91.3</span>
                       </div>
                       <div class="progress" style="height: 6px; background-color: rgba(255,255,255,0.05)">
-                        <div class="progress-bar bg-warning" style="width: 91.3%"></div>
+                        <div class="progress-bar" style="width: 91.3%; background-color: #06B6D4;"></div>
                       </div>
                     </div>
                     <div class="row g-2 text-center text-muted small mt-2 pt-2 border-top border-secondary" style="font-family: var(--font-mono); font-size: 0.7rem;">
                       <div class="col-3"><div class="fw-bold text-white">0.998</div>ROC</div>
+                      <div class="col-3"><div class="fw-bold text-white">0.972</div>ACC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.831</div>F1</div>
-                      <div class="col-3"><div class="fw-bold text-white">0.807</div>PRC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.720</div>REC</div>
                     </div>
                   </div>
@@ -635,13 +621,13 @@
                         <span class="text-accent fw-bold">88.7</span>
                       </div>
                       <div class="progress" style="height: 6px; background-color: rgba(255,255,255,0.05)">
-                        <div class="progress-bar bg-accent" style="width: 88.7%"></div>
+                        <div class="progress-bar" style="width: 88.7%; background-color: #06B6D4;"></div>
                       </div>
                     </div>
                     <div class="row g-2 text-center text-muted small mt-2 pt-2 border-top border-secondary" style="font-family: var(--font-mono); font-size: 0.7rem;">
                       <div class="col-3"><div class="fw-bold text-white">0.997</div>ROC</div>
+                      <div class="col-3"><div class="fw-bold text-white">0.964</div>ACC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.818</div>F1</div>
-                      <div class="col-3"><div class="fw-bold text-white">0.795</div>PRC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.700</div>REC</div>
                     </div>
                   </div>
@@ -668,8 +654,8 @@
                     </div>
                     <div class="row g-2 text-center text-muted small mt-2 pt-2 border-top border-secondary" style="font-family: var(--font-mono); font-size: 0.7rem;">
                       <div class="col-3"><div class="fw-bold text-white">0.889</div>ROC</div>
+                      <div class="col-3"><div class="fw-bold text-white">0.960</div>ACC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.741</div>F1</div>
-                      <div class="col-3"><div class="fw-bold text-white">0.612</div>PRC</div>
                       <div class="col-3"><div class="fw-bold text-white">0.650</div>REC</div>
                     </div>
                   </div>
@@ -681,8 +667,8 @@
 
         <!-- SECOND COMPONENT: Mission Control Center (KPIs) -->
         <div class="section-header mt-5">
-          <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> mission.control.center</h2>
-          <p class="section-subtitle">Real-time aggregated threat analytics indicators</p>
+          <h2 class="section-title">enterprise.command.nexus</h2>
+          <p class="section-subtitle">Operational Fraud Intelligence Overview</p>
         </div>
 
         <div class="row g-4 mb-4">
@@ -690,42 +676,42 @@
             <div class="cyber-card text-center">
               <div class="kpi-title">Total Accounts</div>
               <div class="kpi-value text-white" id="kpi-total-accounts">9,082</div>
-              <span class="badge bg-secondary mt-2" style="font-family: var(--font-mono);"><i class="fa-solid fa-arrow-up"></i> +12% MoM</span>
+              <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Production Dataset</div>
             </div>
           </div>
           <div class="col-6 col-xl-2">
             <div class="cyber-card text-center">
               <div class="kpi-title">Mule Accounts</div>
               <div class="kpi-value text-danger" id="kpi-mules-count">81</div>
-              <span class="badge bg-danger mt-2" style="font-family: var(--font-mono);"><i class="fa-solid fa-triangle-exclamation"></i> Critical Threat</span>
+              <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Flagged Threats</div>
             </div>
           </div>
           <div class="col-6 col-xl-2">
             <div class="cyber-card text-center">
               <div class="kpi-title">Fraud Rate</div>
               <div class="kpi-value text-warning" id="kpi-fraud-rate">0.89%</div>
-              <span class="badge bg-warning text-dark mt-2" style="font-family: var(--font-mono);">Baseline Ratio</span>
+              <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Baseline Ratio</div>
             </div>
           </div>
           <div class="col-6 col-xl-2">
             <div class="cyber-card text-center">
               <div class="kpi-title">ROC AUC</div>
               <div class="kpi-value text-info" id="kpi-roc-auc">0.999</div>
-              <span class="badge bg-info mt-2" style="font-family: var(--font-mono);">Optimal Rating</span>
+              <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Discrimination Power</div>
             </div>
           </div>
           <div class="col-6 col-xl-2">
             <div class="cyber-card text-center">
               <div class="kpi-title">F1 Score</div>
               <div class="kpi-value text-success" id="kpi-f1-score">0.857</div>
-              <span class="badge bg-success mt-2" style="font-family: var(--font-mono);">Precision Base</span>
+              <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Precision-Recall Balance</div>
             </div>
           </div>
           <div class="col-6 col-xl-2">
             <div class="cyber-card text-center">
               <div class="kpi-title">Recall</div>
               <div class="kpi-value text-warning" id="kpi-recall">0.75</div>
-              <span class="badge bg-warning text-dark mt-2" style="font-family: var(--font-mono);">True Target Rate</span>
+              <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">True Positive Rate</div>
             </div>
           </div>
         </div>
@@ -735,86 +721,90 @@
           <div class="col-12 col-xl-7">
             <div class="cyber-card h-100">
               <h5 class="mb-4 text-white" style="font-family: var(--font-headings); letter-spacing: 0.5px;">
-                <span style="color: var(--primary); font-family: var(--font-mono);">//</span> EVIDENCE REPOSITORY
+                <span style="color: var(--primary); margin-right: 6px;">//</span> EVIDENCE REPOSITORY
               </h5>
-              <div class="d-flex flex-column gap-3">
+              <div class="row g-3">
                 <!-- Reports -->
-                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-file-invoice text-primary" style="font-size: 1.3rem;"></i>
-                    <div>
-                      <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Compliance & Model Reports</h6>
-                      <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">System audit trail matches</span>
+                <div class="col-12 col-md-6">
+                  <div class="d-flex align-items-center justify-content-between p-3 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-file-invoice text-primary" style="font-size: 1.5rem;"></i>
+                      <div>
+                        <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Reports</h6>
+                        <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">59 Assets | 15 Jun 2026</span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.75rem;">59 FILES</span>
-                    <span class="text-success small d-none d-md-inline" style="font-family: var(--font-mono); font-size: 0.65rem;">VERIFIED</span>
-                    <button class="btn btn-sm btn-outline-success border-0 small px-2 py-1" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('reports')">[ ACCESS ]</button>
-                  </div>
-                </div>
-                
-                <!-- Visualizations -->
-                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-chart-line text-info" style="font-size: 1.3rem;"></i>
-                    <div>
-                      <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Performance Visualizations</h6>
-                      <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">ROC, PR, Lift & Anomaly projections</span>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.75rem;">21 FILES</span>
-                    <span class="text-success small d-none d-md-inline" style="font-family: var(--font-mono); font-size: 0.65rem;">GENERATE</span>
-                    <button class="btn btn-sm btn-outline-success border-0 small px-2 py-1" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('visualizations')">[ ACCESS ]</button>
+                    <button class="btn btn-sm btn-cyber py-1 px-3" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('reports')">Click &rarr;</button>
                   </div>
                 </div>
 
-                <!-- Models -->
-                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-brain text-warning" style="font-size: 1.3rem;"></i>
-                    <div>
-                      <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Model Binaries (PKL)</h6>
-                      <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">Tree models & unsupervised encoders</span>
+                <!-- Visualizations -->
+                <div class="col-12 col-md-6">
+                  <div class="d-flex align-items-center justify-content-between p-3 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-chart-line text-info" style="font-size: 1.5rem;"></i>
+                      <div>
+                        <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Visualizations</h6>
+                        <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">21 Assets | 15 Jun 2026</span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.75rem;">5 FILES</span>
-                    <span class="text-success small d-none d-md-inline" style="font-family: var(--font-mono); font-size: 0.65rem;">DEPLOYED</span>
-                    <button class="btn btn-sm btn-outline-success border-0 small px-2 py-1" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('models')">[ ACCESS ]</button>
+                    <button class="btn btn-sm btn-cyber py-1 px-3" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('visualizations')">Click &rarr;</button>
                   </div>
                 </div>
 
                 <!-- Datasets -->
-                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-database text-accent" style="font-size: 1.3rem;"></i>
-                    <div>
-                      <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Preprocessed Datasets (CSV)</h6>
-                      <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">Raw inputs, features & variance outputs</span>
+                <div class="col-12 col-md-6">
+                  <div class="d-flex align-items-center justify-content-between p-3 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-database text-accent" style="font-size: 1.5rem;"></i>
+                      <div>
+                        <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Datasets</h6>
+                        <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">10 Assets | 15 Jun 2026</span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.75rem;">10 FILES</span>
-                    <span class="text-success small d-none d-md-inline" style="font-family: var(--font-mono); font-size: 0.65rem;">INDEXED</span>
-                    <button class="btn btn-sm btn-outline-success border-0 small px-2 py-1" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('datasets')">[ ACCESS ]</button>
+                    <button class="btn btn-sm btn-cyber py-1 px-3" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('datasets')">Click &rarr;</button>
                   </div>
                 </div>
 
-                <!-- Documents -->
-                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-file-shield text-danger" style="font-size: 1.3rem;"></i>
-                    <div>
-                      <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Compliance Documents</h6>
-                      <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">AML compliance & validation certificates</span>
+                <!-- Models -->
+                <div class="col-12 col-md-6">
+                  <div class="d-flex align-items-center justify-content-between p-3 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-brain text-warning" style="font-size: 1.5rem;"></i>
+                      <div>
+                        <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Models</h6>
+                        <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">5 Assets | 15 Jun 2026</span>
+                      </div>
                     </div>
+                    <button class="btn btn-sm btn-cyber py-1 px-3" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('models')">Click &rarr;</button>
                   </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.75rem;">8 FILES</span>
-                    <span class="text-success small d-none d-md-inline" style="font-family: var(--font-mono); font-size: 0.65rem;">SIGNED</span>
-                    <button class="btn btn-sm btn-outline-success border-0 small px-2 py-1" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('documents')">[ ACCESS ]</button>
+                </div>
+
+                <!-- Audit Files -->
+                <div class="col-12 col-md-6">
+                  <div class="d-flex align-items-center justify-content-between p-3 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-file-shield text-danger" style="font-size: 1.5rem;"></i>
+                      <div>
+                        <h6 class="mb-0 text-white" style="font-size: 0.85rem;">Audit Files</h6>
+                        <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">8 Assets | 15 Jun 2026</span>
+                      </div>
+                    </div>
+                    <button class="btn btn-sm btn-cyber py-1 px-3" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('documents')">Click &rarr;</button>
+                  </div>
+                </div>
+
+                <!-- SHAP Explanations -->
+                <div class="col-12 col-md-6">
+                  <div class="d-flex align-items-center justify-content-between p-3 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i class="fa-solid fa-magnifying-glass-chart text-success" style="font-size: 1.5rem;"></i>
+                      <div>
+                        <h6 class="mb-0 text-white" style="font-size: 0.85rem;">SHAP Explanations</h6>
+                        <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">50 Accounts | 15 Jun 2026</span>
+                      </div>
+                    </div>
+                    <button class="btn btn-sm btn-cyber py-1 px-3" style="font-family: var(--font-mono); font-size: 0.65rem;" onclick="openRepository('reports')">Click &rarr;</button>
                   </div>
                 </div>
               </div>
@@ -827,9 +817,9 @@
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <div>
                   <h5 class="mb-1 text-white" style="font-family: var(--font-headings); letter-spacing: 0.5px;">
-                    <span style="color: var(--primary); font-family: var(--font-mono);">//</span> FRAUD INVESTIGATION FEED
+                    <span style="color: var(--primary); margin-right: 6px;">//</span> INVESTIGATION QUEUE
                   </h5>
-                  <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">Click row to open details & audit proofs</span>
+                  <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.65rem;">Click row to open Investigation Drawer</span>
                 </div>
               </div>
               <div id="fraudFeedGrid" class="ag-theme-balham-dark flex-grow-1 mt-2" style="height: 310px; min-height: 310px; width: 100%;"></div>
@@ -837,24 +827,71 @@
           </div>
         </div>
 
-        <!-- FOURTH, FIFTH, SIXTH COMPONENTS: Class Distribution, Risk Tier, Risk Score Density -->
+        <!-- FOURTH COMPONENTS: Risk Score Density + Threat Intelligence Summary -->
         <div class="row g-4 mb-4">
           <div class="col-12 col-xl-4">
             <div class="cyber-card">
-              <h5 class="mb-3 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> class.distribution</h5>
-              <div id="chart-class-dist" style="height: 250px;"></div>
-            </div>
-          </div>
-          <div class="col-12 col-xl-4">
-            <div class="cyber-card">
-              <h5 class="mb-3 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> risk.tier.distribution</h5>
-              <div id="chart-risk-tier" style="height: 250px;"></div>
-            </div>
-          </div>
-          <div class="col-12 col-xl-4">
-            <div class="cyber-card">
-              <h5 class="mb-3 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> risk.score.density</h5>
+              <h5 class="mb-3 text-white"><span style="color: var(--primary); margin-right: 6px;">//</span> risk.score.density</h5>
               <div id="chart-risk-density" style="height: 250px;"></div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-8">
+            <div class="cyber-card">
+              <h5 class="mb-4 text-white" style="font-family: var(--font-headings); letter-spacing: 0.5px;">
+                <span style="color: var(--primary); margin-right: 6px;">//</span> THREAT INTELLIGENCE SUMMARY
+              </h5>
+              <div class="row g-3">
+                <div class="col-6 col-md-4 col-xl-4">
+                  <div class="p-3 rounded border border-danger" style="background: rgba(239, 68, 68, 0.05);">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <i class="fa-solid fa-skull-crossbones text-danger"></i>
+                      <span class="small fw-bold text-white" style="font-family: var(--font-mono);">CRITICAL</span>
+                    </div>
+                    <div class="kpi-value text-danger" style="font-size: 1.5rem;">81</div>
+                    <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Critical Accounts</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-4">
+                  <div class="p-3 rounded border border-warning" style="background: rgba(245, 158, 11, 0.05);">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+                      <span class="small fw-bold text-white" style="font-family: var(--font-mono);">HIGH RISK</span>
+                    </div>
+                    <div class="kpi-value text-warning" style="font-size: 1.5rem;">127</div>
+                    <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">High Risk Accounts</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-4">
+                  <div class="p-3 rounded border border-info" style="background: rgba(59, 130, 246, 0.05);">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <i class="fa-solid fa-magnifying-glass text-info"></i>
+                      <span class="small fw-bold text-white" style="font-family: var(--font-mono);">INVESTIGATING</span>
+                    </div>
+                    <div class="kpi-value text-info" style="font-size: 1.5rem;">34</div>
+                    <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Under Investigation</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-4">
+                  <div class="p-3 rounded border border-success" style="background: rgba(16, 185, 129, 0.05);">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <i class="fa-solid fa-circle-check text-success"></i>
+                      <span class="small fw-bold text-white" style="font-family: var(--font-mono);">RESOLVED</span>
+                    </div>
+                    <div class="kpi-value text-success" style="font-size: 1.5rem;">47</div>
+                    <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Resolved Cases</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 col-xl-4">
+                  <div class="p-3 rounded border border-secondary" style="background: rgba(107, 114, 128, 0.05);">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <i class="fa-solid fa-ban text-secondary"></i>
+                      <span class="small fw-bold text-white" style="font-family: var(--font-mono);">BLOCKED</span>
+                    </div>
+                    <div class="kpi-value text-secondary" style="font-size: 1.5rem;">23</div>
+                    <div class="small text-muted mt-1" style="font-family: var(--font-mono); font-size: 0.65rem;">Blocked Accounts</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -865,14 +902,14 @@
       <div id="page-analytics-centers" style="display: none;">
         
         <!-- VISIBLE UIUX STYLE MODEL FILTER BAR -->
-        <div class="cyber-card mb-4 bg-black border-secondary">
+        <div class="cyber-card mb-4 bg-black border-secondary" style="position: sticky; top: 70px; z-index: 9999; backdrop-filter: blur(12px);">
           <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
             <div class="d-flex align-items-center gap-2">
               <i class="fa-solid fa-chart-line text-success"></i>
               <span class="fw-bold text-white" style="font-family: var(--font-headings); letter-spacing: 0.5px;">ANALYTICS CENTERS</span>
             </div>
             
-            <div class="btn-group bg-black p-1 rounded border border-success" role="group" id="analytics-model-selector" style="box-shadow: var(--glow-shadow);">
+            <div class="btn-group bg-black p-1 rounded border border-secondary" role="group" id="analytics-model-selector">
               <button type="button" class="btn btn-dark active" onclick="GlobalState.selectAnalyticsModel('LightGBM')">LightGBM Deep Dive</button>
               <button type="button" class="btn btn-dark" onclick="GlobalState.selectAnalyticsModel('CatBoost')">CatBoost Deep Dive</button>
               <button type="button" class="btn btn-dark" onclick="GlobalState.selectAnalyticsModel('XGBoost')">XGBoost Deep Dive</button>
@@ -898,7 +935,7 @@
         <section id="lightgbm" style="display: block;">
           <div class="section-header d-flex justify-content-between align-items-center">
             <div>
-              <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> analytics.centers.lightgbm</h2>
+              <h2 class="section-title">analytics.centers.lightgbm</h2>
               <p class="section-subtitle">Attributions and performance metric curves</p>
             </div>
             <span class="badge badge-status status-champ">CHAMPION</span>
@@ -946,18 +983,85 @@
                 </div>
               </div>
               <div class="cyber-card">
-                <h5 class="mb-3">Feature Importance (Top 10)</h5>
-                <div id="chart-lgbm-fi" style="height: 200px;"></div>
+                <h5 class="mb-3">Feature Intelligence Explorer</h5>
+                <div class="d-flex flex-column gap-2" id="feature-intelligence-panel">
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">01</span>
+                      <div>
+                        <div class="text-white fw-bold small">net_community_mule_ratio</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Community fraud indicator</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono);">8.9%</span>
+                      <span class="badge bg-danger" style="font-size: 0.6rem;">HIGH IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">02</span>
+                      <div>
+                        <div class="text-white fw-bold small">velocity_ratio_7d_30d</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Short-term velocity spike</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono);">7.8%</span>
+                      <span class="badge bg-danger" style="font-size: 0.6rem;">HIGH IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">03</span>
+                      <div>
+                        <div class="text-white fw-bold small">counterparty_mule_count</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Flagged network exposure</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono);">6.3%</span>
+                      <span class="badge bg-warning text-dark" style="font-size: 0.6rem;">MEDIUM IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">04</span>
+                      <div>
+                        <div class="text-white fw-bold small">dormancy_days_before_spike</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Reactivation pattern signal</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono);">5.4%</span>
+                      <span class="badge bg-warning text-dark" style="font-size: 0.6rem;">MEDIUM IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">05</span>
+                      <div>
+                        <div class="text-white fw-bold small">round_amount_ratio</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Structured cashout pattern</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-success fw-bold" style="font-family: var(--font-mono);">4.9%</span>
+                      <span class="badge bg-info" style="font-size: 0.6rem;">LOW IMPACT</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12 col-lg-7">
               <div class="cyber-card">
-                <h5 class="mb-4">Model Validation Curves</h5>
+                <h5 class="mb-4"><span style="color: var(--primary); margin-right: 6px;">//</span> Model Validation Curves</h5>
                 <div class="row g-2">
                   <div class="col-6 text-center"><h6 class="small">ROC Curve</h6><img src="reports/model_performance/lightgbm/visualizations/roc_curve.png" class="img-fluid rounded border border-secondary" alt="LightGBM ROC Curve"></div>
                   <div class="col-6 text-center"><h6 class="small">PR Curve</h6><img src="reports/model_performance/lightgbm/visualizations/pr_curve.png" class="img-fluid rounded border border-secondary" alt="LightGBM PR Curve"></div>
                   <div class="col-6 text-center"><h6 class="small">Calibration Curve</h6><img src="reports/model_performance/lightgbm/visualizations/calibration_curve.png" class="img-fluid rounded border border-secondary" alt="LightGBM Calibration Curve"></div>
                   <div class="col-6 text-center"><h6 class="small">Lift Chart</h6><img src="reports/model_performance/lightgbm/visualizations/lift_chart.png" class="img-fluid rounded border border-secondary" alt="LightGBM Lift Chart"></div>
+                  <div class="col-6 text-center"><h6 class="small">Gain Chart</h6><img src="reports/model_performance/lightgbm/visualizations/gain_chart.png" class="img-fluid rounded border border-secondary" alt="LightGBM Gain Chart"></div>
                 </div>
               </div>
             </div>
@@ -968,7 +1072,7 @@
         <section id="catboost" style="display: none;">
           <div class="section-header d-flex justify-content-between align-items-center">
             <div>
-              <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> analytics.centers.catboost</h2>
+              <h2 class="section-title">analytics.centers.catboost</h2>
               <p class="section-subtitle">Symmetric decision tree modeling stats</p>
             </div>
             <span class="badge badge-status status-chall">CHALLENGER</span>
@@ -1016,18 +1120,85 @@
                 </div>
               </div>
               <div class="cyber-card">
-                <h5 class="mb-3">Feature Importance (Top 10)</h5>
-                <div id="chart-cat-fi" style="height: 200px;"></div>
+                <h5 class="mb-3">Feature Intelligence Explorer</h5>
+                <div class="d-flex flex-column gap-2" id="cat-feature-intelligence-panel">
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">01</span>
+                      <div>
+                        <div class="text-white fw-bold small">net_community_mule_ratio</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Community fraud indicator</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono);">8.2%</span>
+                      <span class="badge bg-danger" style="font-size: 0.6rem;">HIGH IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">02</span>
+                      <div>
+                        <div class="text-white fw-bold small">velocity_ratio_7d_30d</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Short-term velocity spike</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono);">7.5%</span>
+                      <span class="badge bg-danger" style="font-size: 0.6rem;">HIGH IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">03</span>
+                      <div>
+                        <div class="text-white fw-bold small">counterparty_mule_count</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Flagged network exposure</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono);">6.9%</span>
+                      <span class="badge bg-warning text-dark" style="font-size: 0.6rem;">MEDIUM IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">04</span>
+                      <div>
+                        <div class="text-white fw-bold small">dormancy_days_before_spike</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Reactivation pattern signal</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono);">5.1%</span>
+                      <span class="badge bg-warning text-dark" style="font-size: 0.6rem;">MEDIUM IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">05</span>
+                      <div>
+                        <div class="text-white fw-bold small">round_amount_ratio</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Structured cashout pattern</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-warning fw-bold" style="font-family: var(--font-mono);">4.6%</span>
+                      <span class="badge bg-info" style="font-size: 0.6rem;">LOW IMPACT</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12 col-lg-7">
               <div class="cyber-card">
-                <h5 class="mb-4">Model Validation Curves</h5>
+                <h5 class="mb-4"><span style="color: var(--primary); margin-right: 6px;">//</span> Model Validation Curves</h5>
                 <div class="row g-2">
                   <div class="col-6 text-center"><h6 class="small">ROC Curve</h6><img src="reports/model_performance/catboost/visualizations/roc_curve.png" class="img-fluid rounded border border-secondary" alt="CatBoost ROC Curve"></div>
                   <div class="col-6 text-center"><h6 class="small">PR Curve</h6><img src="reports/model_performance/catboost/visualizations/pr_curve.png" class="img-fluid rounded border border-secondary" alt="CatBoost PR Curve"></div>
                   <div class="col-6 text-center"><h6 class="small">Calibration Curve</h6><img src="reports/model_performance/catboost/visualizations/calibration_curve.png" class="img-fluid rounded border border-secondary" alt="CatBoost Calibration Curve"></div>
                   <div class="col-6 text-center"><h6 class="small">Lift Chart</h6><img src="reports/model_performance/catboost/visualizations/lift_chart.png" class="img-fluid rounded border border-secondary" alt="CatBoost Lift Chart"></div>
+                  <div class="col-6 text-center"><h6 class="small">Gain Chart</h6><img src="reports/model_performance/catboost/visualizations/gain_chart.png" class="img-fluid rounded border border-secondary" alt="CatBoost Gain Chart"></div>
                 </div>
               </div>
             </div>
@@ -1038,7 +1209,7 @@
         <section id="xgboost" style="display: none;">
           <div class="section-header d-flex justify-content-between align-items-center">
             <div>
-              <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> analytics.centers.xgboost</h2>
+              <h2 class="section-title">analytics.centers.xgboost</h2>
               <p class="section-subtitle">Extreme gradient boosting validation results</p>
             </div>
             <span class="badge badge-status status-chall">CHALLENGER</span>
@@ -1086,18 +1257,84 @@
                 </div>
               </div>
               <div class="cyber-card">
-                <h5 class="mb-3">Feature Importance (Top 10)</h5>
-                <div id="chart-xgb-fi" style="height: 200px;"></div>
+                <h5 class="mb-3">Feature Intelligence Explorer</h5>
+                <div class="d-flex flex-column gap-2" id="xgb-feature-intelligence-panel">
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">01</span>
+                      <div>
+                        <div class="text-white fw-bold small">net_community_mule_ratio</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Community fraud indicator</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono);">8.5%</span>
+                      <span class="badge bg-danger" style="font-size: 0.6rem;">HIGH IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">02</span>
+                      <div>
+                        <div class="text-white fw-bold small">velocity_ratio_7d_30d</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Short-term velocity spike</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono);">7.9%</span>
+                      <span class="badge bg-danger" style="font-size: 0.6rem;">HIGH IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">03</span>
+                      <div>
+                        <div class="text-white fw-bold small">counterparty_mule_count</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Flagged network exposure</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono);">6.1%</span>
+                      <span class="badge bg-warning text-dark" style="font-size: 0.6rem;">MEDIUM IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">04</span>
+                      <div>
+                        <div class="text-white fw-bold small">dormancy_days_before_spike</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Reactivation pattern signal</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono);">5.5%</span>
+                      <span class="badge bg-warning text-dark" style="font-size: 0.6rem;">MEDIUM IMPACT</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary" style="background: rgba(255,255,255,0.015);">
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono); font-size: 0.8rem;">05</span>
+                      <div>
+                        <div class="text-white fw-bold small">round_amount_ratio</div>
+                        <div class="text-muted" style="font-size: 0.65rem;">Structured cashout pattern</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="text-accent fw-bold" style="font-family: var(--font-mono);">4.7%</span>
+                      <span class="badge bg-info" style="font-size: 0.6rem;">LOW IMPACT</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12 col-lg-7">
               <div class="cyber-card">
-                <h5 class="mb-4">Model Validation Curves</h5>
+                <h5 class="mb-4"><span style="color: var(--primary); margin-right: 6px;">//</span> Model Validation Curves</h5>
                 <div class="row g-2">
-                  <div class="col-6"><div id="xgb-curve-roc" style="height: 180px;"></div></div>
-                  <div class="col-6"><div id="xgb-curve-pr" style="height: 180px;"></div></div>
-                  <div class="col-6"><div id="xgb-curve-calib" style="height: 180px;"></div></div>
-                  <div class="col-6"><div id="xgb-curve-lift" style="height: 180px;"></div></div>
+                  <div class="col-6 text-center"><h6 class="small">ROC Curve</h6><div id="xgb-roc-chart" style="height:180px;"></div></div>
+                  <div class="col-6 text-center"><h6 class="small">PR Curve</h6><div id="xgb-pr-chart" style="height:180px;"></div></div>
+                  <div class="col-6 text-center"><h6 class="small">Calibration Curve</h6><div id="xgb-cal-chart" style="height:180px;"></div></div>
+                  <div class="col-6 text-center"><h6 class="small">Gain Chart</h6><div id="xgb-gain-chart" style="height:180px;"></div></div>
                 </div>
               </div>
             </div>
@@ -1108,35 +1345,54 @@
         <section id="isolation-forest" style="display: none;">
           <div class="section-header d-flex justify-content-between align-items-center">
             <div>
-              <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> analytics.centers.isolationforest</h2>
+              <h2 class="section-title">analytics.centers.isolationforest</h2>
               <p class="section-subtitle">Unsupervised anomaly targeting tracking</p>
             </div>
             <span class="badge badge-status status-monitor">MONITORING</span>
           </div>
 
           <div class="row g-4 mb-4">
-            <div class="col-6 col-md-3">
-              <div class="cyber-card text-center">
-                <div class="kpi-value text-warning">3.9%</div>
-                <div class="kpi-label mt-2" style="font-family: var(--font-mono); font-size: 0.75rem;">Contamination Rate</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="cyber-card text-center">
-                <div class="kpi-value text-white">-0.142</div>
-                <div class="kpi-label mt-2" style="font-family: var(--font-mono); font-size: 0.75rem;">Anomaly Score Boundary</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="cyber-card text-center">
-                <div class="kpi-value text-danger">387</div>
-                <div class="kpi-label mt-2" style="font-family: var(--font-mono); font-size: 0.75rem;">Anomalies Detected</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="cyber-card text-center">
-                <div class="kpi-value text-success">74.1%</div>
-                <div class="kpi-label mt-2" style="font-family: var(--font-mono); font-size: 0.75rem;">Positive Accuracy Alignment</div>
+            <div class="col-12">
+              <div class="cyber-card">
+                <h5 class="mb-4 text-white"><span style="color: var(--primary); margin-right: 6px;">//</span> ISOLATION FOREST MONITORING</h5>
+                <div class="table-responsive">
+                  <table class="table table-dark table-hover table-sm align-middle small">
+                    <thead>
+                      <tr>
+                        <th style="font-family: var(--font-mono); font-size: 0.7rem;">METRIC</th>
+                        <th style="font-family: var(--font-mono); font-size: 0.7rem;">VALUE</th>
+                        <th style="font-family: var(--font-mono); font-size: 0.7rem;">INTERPRETATION</th>
+                        <th style="font-family: var(--font-mono); font-size: 0.7rem;">STATUS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-white">Contamination Rate</td>
+                        <td class="text-warning fw-bold">3.9%</td>
+                        <td class="text-muted">Expected anomaly rate</td>
+                        <td><span class="badge bg-success">Healthy</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-white">Anomaly Score Boundary</td>
+                        <td class="text-white fw-bold">-0.142</td>
+                        <td class="text-muted">Decision threshold boundary</td>
+                        <td><span class="badge bg-success">Stable</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-white">Anomalies Detected</td>
+                        <td class="text-danger fw-bold">387</td>
+                        <td class="text-muted">Accounts exceeding threshold</td>
+                        <td><span class="badge bg-warning text-dark">Review</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-white">Positive Accuracy Alignment</td>
+                        <td class="text-success fw-bold">74.1%</td>
+                        <td class="text-muted">Cross-validation alignment</td>
+                        <td><span class="badge bg-success">Valid</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -1144,17 +1400,22 @@
           <div class="row g-4">
             <div class="col-12 col-lg-8">
               <div class="cyber-card">
-                <h5 class="mb-4">Anomaly Signal Distribution & Projections (Real Proof)</h5>
+                <h5 class="mb-4"><span style="color: var(--primary); margin-right: 6px;">//</span> Anomaly Evidence Center</h5>
                 <div class="row g-2">
                   <div class="col-4 text-center"><h6 class="small">ROC Curve</h6><img src="reports/model_performance/isolation_forest/visualizations/roc_curve.png" class="img-fluid rounded border border-secondary" alt="Isolation Forest ROC"></div>
                   <div class="col-4 text-center"><h6 class="small">PR Curve</h6><img src="reports/model_performance/isolation_forest/visualizations/pr_curve.png" class="img-fluid rounded border border-secondary" alt="Isolation Forest PR"></div>
                   <div class="col-4 text-center"><h6 class="small">Score Distribution</h6><img src="reports/model_evaluation/isolation_forest/isolation_forest_score_distribution.png" class="img-fluid rounded border border-secondary" alt="Score Distribution"></div>
                 </div>
+                <div class="row g-2 mt-2">
+                  <div class="col-4 text-center"><h6 class="small">Calibration</h6><img src="reports/model_performance/isolation_forest/visualizations/calibration_curve.png" class="img-fluid rounded border border-secondary" alt="Calibration Curve"></div>
+                  <div class="col-4 text-center"><h6 class="small">Gain Chart</h6><img src="reports/model_performance/isolation_forest/visualizations/gain_chart.png" class="img-fluid rounded border border-secondary" alt="Gain Chart"></div>
+                  <div class="col-4 text-center"><h6 class="small">Lift Chart</h6><img src="reports/model_performance/isolation_forest/visualizations/lift_chart.png" class="img-fluid rounded border border-secondary" alt="Lift Chart"></div>
+                </div>
               </div>
             </div>
             <div class="col-12 col-lg-4">
               <div class="cyber-card h-100 d-flex flex-column justify-content-center">
-                <h5>Ensemble Contribution</h5>
+                <h5><span style="color: var(--primary); margin-right: 6px;">//</span> Ensemble Contribution</h5>
                 <p class="text-muted small mt-3">
                   Unsupervised metrics identify structural shifts without target labels. Attributes are integrated at 15% aggregate weighting.
                 </p>
@@ -1206,7 +1467,7 @@
 
         <section id="risk-engine">
           <div class="section-header">
-            <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> risk.intelligence.engine</h2>
+            <h2 class="section-title">risk.intelligence.engine</h2>
             <p class="section-subtitle">Surveillance priority list and profiles</p>
           </div>
 
@@ -1214,7 +1475,7 @@
             <div class="col-12 col-lg-8">
               <div class="cyber-card">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h5 class="text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> SURVEILLANCE QUEUE</h5>
+                  <h5 class="text-white">SURVEILLANCE QUEUE</h5>
                 </div>
                 <div id="riskGrid" class="ag-theme-balham-dark" style="height: 350px; width: 100%;"></div>
               </div>
@@ -1236,7 +1497,7 @@
         <!-- Section: SHAP Explainability -->
         <section id="explainability">
           <div class="section-header">
-            <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> risk.intelligence.explainability</h2>
+            <h2 class="section-title">risk.intelligence.explainability</h2>
             <p class="section-subtitle">Local feature attributions for target cases</p>
           </div>
 
@@ -1245,7 +1506,7 @@
             <div class="col-12 col-lg-7">
               <div class="cyber-card h-100">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h5 class="text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> DECISION DRIVERS</h5>
+                  <h5 class="text-white"><span style="color: var(--primary); margin-right: 6px;">//</span> DECISION DRIVERS</h5>
                   <div>
                     <select class="form-select form-select-sm bg-dark text-white border-secondary" id="shap-account-selector" onchange="updateSHAPWaterfall(this.value)" style="font-family: var(--font-mono); font-size: 0.75rem;">
                       <!-- Loaded dynamically -->
@@ -1263,7 +1524,7 @@
             <!-- Right Column: Investigation Summary -->
             <div class="col-12 col-lg-5">
               <div class="cyber-card h-100">
-                <h5 class="mb-4 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> INVESTIGATION SUMMARY</h5>
+                <h5 class="mb-4 text-white"><span style="color: var(--primary); margin-right: 6px;">//</span> INVESTIGATION SUMMARY</h5>
                 <div id="shap-nlp-explanation">
                   <!-- Loaded dynamically by JS -->
                 </div>
@@ -1280,24 +1541,50 @@
         <!-- Section: Champion Framework -->
         <section id="champion-framework">
           <div class="section-header">
-            <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> governance.champion.lifecycle</h2>
+            <h2 class="section-title">governance.champion.lifecycle</h2>
             <p class="section-subtitle">Champion framework promotions, approval workflows, and audit trails</p>
           </div>
 
           <div class="row g-4 mb-4">
             <!-- Left Panel: Deployed Champion Status -->
             <div class="col-12 col-xl-4">
-              <div class="cyber-card h-100 text-center d-flex flex-column justify-content-between py-4">
+              <div class="cyber-card h-100 d-flex flex-column justify-content-between py-4">
                 <div>
-                  <i class="fa-solid fa-shield-halved text-success" style="font-size: 3.5rem; filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));"></i>
-                  <h3 class="mt-3 text-white fw-bold">LightGBM v1.3</h3>
-                  <p class="text-success small fw-bold" style="font-family: var(--font-mono);">CHAMPION DEPLOYED</p>
+                  <h5 class="text-white mb-3"><span style="color: var(--primary); margin-right: 6px;">//</span> MODEL GOVERNANCE CENTER</h5>
+                  <div class="d-flex align-items-center gap-3 mb-3 p-3 rounded border border-success" style="background: rgba(16, 185, 129, 0.05);">
+                    <i class="fa-solid fa-shield-halved text-success" style="font-size: 2rem;"></i>
+                    <div>
+                      <div class="text-white fw-bold" style="font-size: 1.1rem;">LightGBM v1.3</div>
+                      <span class="badge badge-status status-champ">CHAMPION DEPLOYED</span>
+                    </div>
+                  </div>
                 </div>
                 
-                <div id="chart-champion-gauge" style="height: 180px;"></div>
-                
-                <div class="border-top border-secondary pt-3 mt-2">
-                  <span class="badge bg-success px-3 py-2" style="font-family: var(--font-mono); font-size: 0.8rem; box-shadow: var(--glow-shadow);">AML AUDIT STATUS: PASSED</span>
+                <div class="mt-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.7rem;">AUDIT STATUS</span>
+                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.65rem;">PASSED</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.7rem;">DEPLOYMENT</span>
+                    <span class="badge bg-success" style="font-family: var(--font-mono); font-size: 0.65rem;">ACTIVE</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.7rem;">VERSION</span>
+                    <span class="text-white fw-bold" style="font-family: var(--font-mono); font-size: 0.75rem;">v1.3</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.7rem;">APPROVAL DATE</span>
+                    <span class="text-white" style="font-family: var(--font-mono); font-size: 0.75rem;">15 Jun 2026</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.7rem;">PERFORMANCE</span>
+                    <span class="text-white fw-bold" style="font-family: var(--font-mono); font-size: 0.75rem;">F1: 0.857 | ROC: 0.999</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="small text-muted" style="font-family: var(--font-mono); font-size: 0.7rem;">ENTERPRISE SCORE</span>
+                    <span class="text-success fw-bold" style="font-family: var(--font-mono); font-size: 0.75rem;">95.8</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1305,7 +1592,7 @@
             <!-- Right Panel: Stepper & Timeline UI -->
             <div class="col-12 col-xl-8">
               <div class="cyber-card h-100">
-                <h5 class="mb-4 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> MODEL APPROVAL WORKFLOW</h5>
+                <h5 class="mb-4 text-white">MODEL APPROVAL WORKFLOW</h5>
                 
                 <!-- Stepper UI -->
                 <div class="d-flex justify-content-between align-items-center mb-5 position-relative px-2">
@@ -1314,7 +1601,7 @@
                   </div>
                   
                   <div class="text-center position-relative" style="z-index: 2; width: 20%;">
-                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px; box-shadow: 0 0 8px var(--success);">
+                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px;">
                       <i class="fa-solid fa-check" style="font-size: 0.8rem;"></i>
                     </div>
                     <div class="small text-white fw-bold" style="font-size: 0.75rem;">1. Preprocess</div>
@@ -1322,7 +1609,7 @@
                   </div>
                   
                   <div class="text-center position-relative" style="z-index: 2; width: 20%;">
-                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px; box-shadow: 0 0 8px var(--success);">
+                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px;">
                       <i class="fa-solid fa-check" style="font-size: 0.8rem;"></i>
                     </div>
                     <div class="small text-white fw-bold" style="font-size: 0.75rem;">2. Leakage</div>
@@ -1330,7 +1617,7 @@
                   </div>
 
                   <div class="text-center position-relative" style="z-index: 2; width: 20%;">
-                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px; box-shadow: 0 0 8px var(--success);">
+                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px;">
                       <i class="fa-solid fa-check" style="font-size: 0.8rem;"></i>
                     </div>
                     <div class="small text-white fw-bold" style="font-size: 0.75rem;">3. Backtest</div>
@@ -1338,7 +1625,7 @@
                   </div>
 
                   <div class="text-center position-relative" style="z-index: 2; width: 20%;">
-                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px; box-shadow: 0 0 8px var(--success);">
+                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px;">
                       <i class="fa-solid fa-check" style="font-size: 0.8rem;"></i>
                     </div>
                     <div class="small text-white fw-bold" style="font-size: 0.75rem;">4. Compliance</div>
@@ -1346,7 +1633,7 @@
                   </div>
 
                   <div class="text-center position-relative" style="z-index: 2; width: 20%;">
-                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px; box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); border: 2px solid #FFF;">
+                    <div class="rounded-circle bg-success text-dark fw-bold d-inline-flex align-items-center justify-content-center mb-2" style="width: 32px; height: 32px; border: 2px solid #FFF;">
                       <i class="fa-solid fa-ranking-star" style="font-size: 0.8rem;"></i>
                     </div>
                     <div class="small text-success fw-bold" style="font-size: 0.75rem;">5. Deployed</div>
@@ -1355,23 +1642,23 @@
                 </div>
 
                 <!-- Model Audit Trail / Chronology -->
-                <h6 class="text-muted fw-bold mb-3 mt-4" style="font-family: var(--font-mono); font-size: 0.75rem;">// MODEL AUDIT TRAIL & CHRONOLOGY</h6>
+                <h6 class="text-muted fw-bold mb-3 mt-4" style="font-family: var(--font-mono); font-size: 0.75rem;"><span style="color: var(--primary); margin-right: 6px;">//</span> MODEL AUDIT TRAIL & CHRONOLOGY</h6>
                 
                 <div class="timeline-container ps-3 border-start border-secondary position-relative ms-2">
                   <div class="timeline-event mb-3 position-relative">
-                    <div class="position-absolute rounded-circle bg-success" style="width: 10px; height: 10px; left: -18px; top: 6px; box-shadow: 0 0 6px var(--success);"></div>
+                    <div class="position-absolute rounded-circle bg-success" style="width: 10px; height: 10px; left: -18px; top: 6px;"></div>
                     <div class="d-flex justify-content-between align-items-center small">
                       <span class="fw-bold text-white">LightGBM v1.3 Deployed (Champion)</span>
-                      <span class="text-muted" style="font-family: var(--font-mono);">Oct 2024</span>
+                      <span class="text-muted" style="font-family: var(--font-mono);">15 Jun 2026</span>
                     </div>
                     <p class="small text-muted mb-0">F1 score increased to 0.857. Features selection validated by the audit board.</p>
                   </div>
 
                   <div class="timeline-event mb-3 position-relative">
-                    <div class="position-absolute rounded-circle bg-warning" style="width: 10px; height: 10px; left: -18px; top: 6px; box-shadow: 0 0 6px var(--warning);"></div>
+                    <div class="position-absolute rounded-circle bg-warning" style="width: 10px; height: 10px; left: -18px; top: 6px;"></div>
                     <div class="d-flex justify-content-between align-items-center small">
                       <span class="fw-bold text-white">CatBoost v1.1 Promoted (Challenger)</span>
-                      <span class="text-muted" style="font-family: var(--font-mono);">Jul 2024</span>
+                      <span class="text-muted" style="font-family: var(--font-mono);">14 Jun 2026</span>
                     </div>
                     <p class="small text-muted mb-0">Evaluated on the production validation dataset. Backtest F1: 0.831.</p>
                   </div>
@@ -1380,7 +1667,7 @@
                     <div class="position-absolute rounded-circle bg-secondary" style="width: 10px; height: 10px; left: -18px; top: 6px;"></div>
                     <div class="d-flex justify-content-between align-items-center small">
                       <span class="fw-bold text-white">XGBoost v1.0 Promoted (Challenger)</span>
-                      <span class="text-muted" style="font-family: var(--font-mono);">Apr 2024</span>
+                      <span class="text-muted" style="font-family: var(--font-mono);">13 Jun 2026</span>
                     </div>
                     <p class="small text-muted mb-0">Extreme gradient boosting baseline established. Validation F1: 0.818.</p>
                   </div>
@@ -1393,7 +1680,7 @@
         <!-- Section: Data Quality -->
         <section id="data-quality">
           <div class="section-header">
-            <h2 class="section-title"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> governance.data.quality</h2>
+            <h2 class="section-title">governance.data.quality</h2>
             <p class="section-subtitle">Feature stability indexes, leakage verifications, and variance filtering</p>
           </div>
 
@@ -1402,7 +1689,7 @@
             <div class="col-12 col-md-4">
               <div class="cyber-card h-100 d-flex flex-column justify-content-between">
                 <div>
-                  <h5 class="mb-4 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> DATA STABILITY</h5>
+                  <h5 class="mb-4 text-white"><span style="color: var(--primary); margin-right: 6px;">//</span> DATA STABILITY</h5>
                   <div class="p-3 rounded border border-secondary text-center mb-3" style="background: rgba(255,255,255,0.015);">
                     <div class="small text-muted" style="font-family: var(--font-mono);">DATA QUALITY SCORE</div>
                     <div class="kpi-value text-success my-2" style="font-size: 2.5rem;">81.7<span style="font-size: 1.2rem; color: var(--text-muted);"> / 100</span></div>
@@ -1431,7 +1718,7 @@
             <!-- Feature Selection Journey -->
             <div class="col-12 col-md-8">
               <div class="cyber-card h-100">
-                <h5 class="mb-4 text-white"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> FEATURE SELECTION JOURNEY</h5>
+                <h5 class="mb-4 text-white"><span style="color: var(--primary); margin-right: 6px;">//</span> FEATURE SELECTION JOURNEY</h5>
                 
                 <div class="row g-3">
                   <!-- Feature 1 -->
@@ -1523,9 +1810,9 @@
   <!-- Evidence Repository Modal -->
   <div class="modal fade" id="evidenceModal" tabindex="-1" aria-labelledby="evidenceModalLabel" aria-hidden="true" style="z-index: 2100;">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-dark text-white border-secondary" style="background-color: #0B0F19 !important; border: 1px solid rgba(16, 185, 129, 0.3) !important;">
+      <div class="modal-content bg-dark text-white border-secondary" style="background-color: #0B0F19 !important; border: 1px solid rgba(255, 255, 255, 0.06) !important;">
         <div class="modal-header border-secondary">
-          <h5 class="modal-title" id="evidenceModalLabel"><span style="color: var(--primary); font-family: var(--font-mono);">//</span> Repository Files</h5>
+          <h5 class="modal-title" id="evidenceModalLabel">Repository Files</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="evidence-modal-body" style="max-height: 450px; overflow-y: auto;">
@@ -1541,9 +1828,9 @@
   <!-- Case Dossier Modal -->
   <div class="modal fade" id="caseDossierModal" tabindex="-1" aria-labelledby="caseDossierModalLabel" aria-hidden="true" style="z-index: 2200;">
     <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content bg-dark text-white border-danger" style="background-color: #0B0F19 !important; border: 1px solid rgba(239, 68, 68, 0.35) !important; box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);">
+      <div class="modal-content bg-dark text-white border-danger" style="background-color: #0B0F19 !important; border: 1px solid rgba(239, 68, 68, 0.2) !important;">
         <div class="modal-header border-danger">
-          <h5 class="modal-title" id="caseDossierModalLabel"><span style="color: var(--danger); font-family: var(--font-mono);">//</span> INVESTIGATION DOSSIER: <span id="dossier-account-id">ACC_0001</span></h5>
+          <h5 class="modal-title" id="caseDossierModalLabel"><span style="color: var(--danger); font-family: var(--font-mono);"></span>INVESTIGATION DOSSIER: <span id="dossier-account-id">ACC_0001</span></h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="case-dossier-modal-body" style="max-height: 75vh; overflow-y: auto;">
@@ -1790,8 +2077,6 @@
         this.updateGeneralStats(filteredData);
         
         // 2. Redraw distributions
-        plotClassDistribution(filteredData);
-        plotRiskTier(filteredData);
         plotRiskDensity(filteredData);
         
         // 3. Update AG Grid Risk table
@@ -1924,6 +2209,9 @@
           if (matchName === selectedMatch) {
             el.style.display = 'block';
             el.style.opacity = '1';
+            if (sec === 'xgboost') {
+              setTimeout(() => renderXGBoostCurves(), 100);
+            }
           } else {
             el.style.display = 'none';
           }
@@ -2235,6 +2523,56 @@
         font: { color: '#F1F5F9', size: 9 }, margin: { t: 25, b: 20, l: 25, r: 10 },
         title: 'Lift Curve', showlegend: false
       }, {responsive: true});
+    };
+
+    const renderXGBoostCurves = async () => {
+      const plotCfg = { responsive: true, displayModeBar: false };
+      const baseLayout = { paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', font: { color: '#F1F5F9', size: 9 }, margin: { t: 25, b: 30, l: 35, r: 10 } };
+
+      try {
+        const [rocCsv, prCsv, calCsv, gainCsv] = await Promise.all([
+          fetch('reports/model_performance/xgboost/roc_curve.csv').then(r => r.text()),
+          fetch('reports/model_performance/xgboost/pr_curve.csv').then(r => r.text()),
+          fetch('reports/model_performance/xgboost/calibration_curve.csv').then(r => r.text()),
+          fetch('reports/model_performance/xgboost/gain_chart.csv').then(r => r.text())
+        ]);
+
+        const parseCSV = (text) => {
+          const lines = text.trim().split('\n');
+          const headers = lines[0].split(',');
+          return lines.slice(1).map(line => {
+            const vals = line.split(',');
+            const obj = {};
+            headers.forEach((h, i) => obj[h.trim()] = parseFloat(vals[i]));
+            return obj;
+          });
+        };
+
+        const rocData = parseCSV(rocCsv);
+        Plotly.newPlot('xgb-roc-chart', [
+          { x: rocData.map(r => r.FPR), y: rocData.map(r => r.TPR), type: 'scatter', mode: 'lines', name: 'ROC', line: { color: '#8B5CF6', width: 2 } },
+          { x: [0, 1], y: [0, 1], type: 'scatter', mode: 'lines', name: 'Ref', line: { dash: 'dash', color: '#9CA3AF', width: 1 } }
+        ], { ...baseLayout, xaxis: { title: 'FPR', range: [0, 1] }, yaxis: { title: 'TPR', range: [0, 1] } }, plotCfg);
+
+        const prData = parseCSV(prCsv);
+        Plotly.newPlot('xgb-pr-chart', [
+          { x: prData.map(r => r.Recall), y: prData.map(r => r.Precision), type: 'scatter', mode: 'lines', name: 'PR', line: { color: '#8B5CF6', width: 2 } }
+        ], { ...baseLayout, xaxis: { title: 'Recall', range: [0, 1] }, yaxis: { title: 'Precision', range: [0, 1] } }, plotCfg);
+
+        const calData = parseCSV(calCsv);
+        Plotly.newPlot('xgb-cal-chart', [
+          { x: calData.map(r => r.Predicted_Probability), y: calData.map(r => r.Observed_Frequency), type: 'scatter', mode: 'lines+markers', name: 'Calibration', line: { color: '#8B5CF6', width: 2 }, marker: { size: 5 } },
+          { x: [0, 1], y: [0, 1], type: 'scatter', mode: 'lines', name: 'Perfect', line: { dash: 'dash', color: '#9CA3AF', width: 1 } }
+        ], { ...baseLayout, xaxis: { title: 'Predicted', range: [0, 1] }, yaxis: { title: 'Observed', range: [0, 1] } }, plotCfg);
+
+        const gainData = parseCSV(gainCsv);
+        const totalSamples = gainData.length;
+        Plotly.newPlot('xgb-gain-chart', [
+          { x: gainData.map((_, i) => ((i + 1) / totalSamples) * 100), y: gainData.map(r => r.gain), type: 'scatter', mode: 'lines', name: 'Gain', line: { color: '#8B5CF6', width: 2 } },
+          { x: [0, 100], y: [0, 100], type: 'scatter', mode: 'lines', name: 'Random', line: { dash: 'dash', color: '#9CA3AF', width: 1 } }
+        ], { ...baseLayout, xaxis: { title: '% Population', range: [0, 100] }, yaxis: { title: '% Fraud Captured', range: [0, 100] } }, plotCfg);
+
+      } catch (e) { console.warn('XGBoost curve render error:', e); }
     };
 
     const plotFeatureImportance = (elementId, features, scores, color) => {
@@ -2929,13 +3267,8 @@
       }
 
       // Initial Plots load
-      plotClassDistribution();
-      plotRiskTier();
       plotRiskDensity();
       
-      // Mini Curves
-      renderMiniCurves('xgb', '0.997', '#8B5CF6');
-
       // Feature importances
       drawFeatureImportances();
 
