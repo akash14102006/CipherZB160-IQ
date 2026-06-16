@@ -61,7 +61,7 @@ Enterprise banking surveillance and intelligence command center for real-time de
 
 Visual overview of high-throughput ingestion, real-time feature store, and model scoring pipeline.
 
-![Architecture Diagram](architecture/architecture_diagram.png)
+![Architecture Diagram](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/architecture/architecture_diagram.png)
 
 ---
 
@@ -130,7 +130,7 @@ Data ──> Signals ──> Models ──> Validation ──> Explainability �
 
 Detailed model evaluation curves, lift charts, and calibration parameters.
 
-![Model Comparison](../../REPORTS-CENTER/model-performance/model_comparison.png)
+![Model Comparison](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/REPORTS-CENTER/model-performance/model_comparison.png)
 
 ---
 
@@ -189,35 +189,35 @@ CipherZB160-IQ/
 <details>
 <summary>Surveillance Command Center</summary>
 
-![Platform Overview](visuals/platform_overview.png)
+![Platform Overview](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/platform_overview.png)
 
 </details>
 
 <details>
 <summary>Model Evaluation — LightGBM (Champion)</summary>
 
-![LightGBM Analysis](visuals/lightgbm_deep_dive.png)
+![LightGBM Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/lightgbm_deep_dive.png)
 
 </details>
 
 <details>
 <summary>Model Evaluation — CatBoost (Challenger)</summary>
 
-![CatBoost Analysis](visuals/catboost_deep_dive.png)
+![CatBoost Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/catboost_deep_dive.png)
 
 </details>
 
 <details>
 <summary>Model Evaluation — XGBoost (Challenger)</summary>
 
-![XGBoost Analysis](visuals/xgboost_deep_dive.png)
+![XGBoost Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/xgboost_deep_dive.png)
 
 </details>
 
 <details>
 <summary>Model Evaluation — Isolation Forest (Baseline)</summary>
 
-![Isolation Forest Analysis](visuals/isolation_forest_deep_dive.png)
+![Isolation Forest Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/isolation_forest_deep_dive.png)
 
 </details>
 
