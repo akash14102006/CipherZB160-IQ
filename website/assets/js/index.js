@@ -176,7 +176,7 @@
       filters: {
         model: 'ALL',
         riskLevel: 'ALL',
-        accountType: 'ALL',
+        accountType: 'Mule',
         dataset: 'Production',
         dateRange: '30d',
         riskScoreThreshold: 0.0,
@@ -234,7 +234,7 @@
         const defaultFilters = {
           model: 'ALL',
           riskLevel: 'ALL',
-          accountType: 'ALL',
+          accountType: 'Mule',
           dataset: 'Production',
           dateRange: '30d',
           riskScoreThreshold: 0.0
@@ -263,7 +263,7 @@
         const defaultFilters = {
           model: 'ALL',
           riskLevel: 'ALL',
-          accountType: 'ALL',
+          accountType: 'Mule',
           dataset: 'Production',
           dateRange: '30d',
           riskScoreThreshold: 0.0
@@ -1411,20 +1411,43 @@
         { 
           field: 'risk_score', 
           headerName: 'Risk Score', 
-          width: 110,
+          width: 260,
           cellRenderer: params => {
             const val = parseFloat(params.value);
-            const pct = isNaN(val) ? 0 : Math.min(100, Math.max(0, val));
-            let barColor = 'bg-success';
-            if (pct >= 85) barColor = 'bg-danger';
-            else if (pct >= 60) barColor = 'bg-warning';
-            else if (pct >= 30) barColor = 'bg-info';
+            const pct = isNaN(val) ? 0 : Math.min(100, Math.max(0, val * 100));
+            const pctStr = pct.toFixed(2) + '%';
+            
+            let tier = 'LOW';
+            let color = '#10b981';
+            let bgGrad = 'linear-gradient(90deg, #10b981, #34d399)';
+            let action = 'Monitor';
+            
+            if (pct > 75) {
+              tier = 'CRITICAL';
+              color = '#ef4444';
+              bgGrad = 'linear-gradient(90deg, #ef4444, #f87171)';
+              action = 'Block';
+            } else if (pct > 50) {
+              tier = 'HIGH';
+              color = '#f97316';
+              bgGrad = 'linear-gradient(90deg, #f97316, #fb923c)';
+              action = 'Escalate';
+            } else if (pct > 25) {
+              tier = 'MEDIUM';
+              color = '#eab308';
+              bgGrad = 'linear-gradient(90deg, #eab308, #facc15)';
+              action = 'Review';
+            }
+            
+            const tooltip = `Risk Score: ${pctStr}\nRisk Tier: ${tier}\nModel: LightGBM\nRecommended Action: ${action}`;
+            
             return `
-              <div class="d-flex align-items-center gap-2">
-                <span>${params.value}</span>
-                <div class="progress flex-grow-1" style="height: 6px; background-color: rgba(255,255,255,0.05)">
-                  <div class="progress-bar ${barColor}" style="width: ${pct}%"></div>
+              <div class="d-flex align-items-center gap-2 w-100" style="font-family: var(--font-mono); font-size: 0.75rem; height: 100%;" title="${tooltip}">
+                <span style="min-width: 55px; color: #f1f5f9;">${pctStr}</span>
+                <div class="progress flex-grow-1" style="height: 8px; background-color: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; margin: 0 4px;">
+                  <div class="progress-bar" style="width: ${pct}%; background: ${bgGrad}; box-shadow: 0 0 8px ${color}80; height: 100%; transition: width 0.6s ease; border-radius: 2px;"></div>
                 </div>
+                <span class="badge" style="background-color: ${color}26; color: ${color}; border: 1px solid ${color}4d; font-size: 0.65rem; padding: 2px 6px; min-width: 65px; text-align: center; font-weight: bold; letter-spacing: 0.5px;">${tier}</span>
               </div>
             `;
           }
