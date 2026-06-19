@@ -66,7 +66,7 @@
     <main class="main-content">
       
       <!-- PAGE 0: PLATFORM OVERVIEW (LANDING / STORYTELLING) -->
-      <div id="page-platform-overview" style="display: block;" class="animate__animated animate__fadeIn">
+      <div id="platform-overview" style="display: block;" class="animate__animated animate__fadeIn">
         
         <!-- Hero Section -->
         <div class="hero-container">
@@ -91,70 +91,7 @@
           </div>
         </div>
 
-        <!-- Enterprise Intelligence Vault -->
-        <section id="evidence-repository" class="container mt-5 pt-4">
-          <div class="text-center mb-4">
-            <h3 class="fw-bold" style="font-family: var(--font-headings); letter-spacing: 1px;"><span style="color: var(--primary);">//</span> ENTERPRISE INTELLIGENCE VAULT</h3>
-            <p class="text-muted">Click to decrypt and access platform artifacts</p>
-          </div>
-          
-          <div class="vault-container">
-            <div class="folder" id="evidence-folder">
-              <div class="folder-tab">
-                <i class="fa-solid fa-lock me-2"></i> CLASSIFIED_DATA
-              </div>
-              
-              <!-- The clickable cover that flips open -->
-              <div class="folder-cover" onclick="document.getElementById('evidence-folder').classList.add('open')">
-                <i class="fa-solid fa-shield-cat fa-3x mb-3" style="color: var(--primary);"></i>
-                <h4 class="text-white" style="font-family: var(--font-headings); letter-spacing: 2px;">PROJECT ARTIFACTS</h4>
-                <p class="small" style="color: var(--primary); font-family: var(--font-mono);">ENCRYPTED ARCHIVE</p>
-                <div class="mt-4 cyber-btn">DECRYPT & OPEN</div>
-              </div>
 
-              <!-- The inside contents -->
-              <div class="folder-content">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <h6 class="text-white mb-3" style="font-family: var(--font-mono); border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">DATA PROCESSING</h6>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-file-csv file-icon"></i> 01_Data_Cleaning_Report.csv
-                    </a>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-file-csv file-icon"></i> 02_Leakage_Detection.csv
-                    </a>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-file-csv file-icon"></i> 03_Feature_Selection.csv
-                    </a>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-triangle-exclamation text-warning"></i> risk_engine_output.parquet
-                    </a>
-                  </div>
-                  <div class="col-md-6">
-                    <h6 class="text-white mb-3" style="font-family: var(--font-mono); border-bottom: 1px solid var(--border-color); padding-bottom: 5px;">MODEL INTELLIGENCE</h6>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-chart-line file-icon"></i> ROC_Comparison_Curves.png
-                    </a>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-chart-bar file-icon"></i> Feature_Importance_Rankings.csv
-                    </a>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-brain file-icon" style="color: #7C3AED;"></i> shap_local_explanations.csv
-                    </a>
-                    <a href="https://github.com/akash14102006/CipherZB160-IQ" target="_blank" class="file-item text-decoration-none">
-                      <i class="fa-solid fa-file-shield text-info"></i> model_governance_report.csv
-                    </a>
-                  </div>
-                </div>
-                <div class="text-center mt-4">
-                  <button class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('evidence-folder').classList.remove('open')">
-                    <i class="fa-solid fa-xmark"></i> Close Vault
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <!-- Architecture Diagram -->
         <section id="platform-architecture" class="container mt-5 pt-4">
@@ -460,70 +397,7 @@
           </div>
         </div>
 
-        <!-- Evidence Repository Preview -->
-        <div class="container mt-5 pt-4">
-          <div class="text-center mb-4">
-            <h3 class="fw-bold" style="font-family: var(--font-headings); letter-spacing: 1px;"><span style="color: var(--primary);">//</span> EVIDENCE REPOSITORY</h3>
-            <p class="text-muted">Direct Access to Project Artifacts</p>
-          </div>
-          
-          <div class="row g-3">
-            <div class="col-md-4">
-              <div class="repo-card" onclick="window.open('https://github.com/akash14102006/CipherZB160-IQ', '_blank')">
-                <i class="fa-regular fa-folder-open fa-2x text-primary"></i>
-                <div>
-                  <h6 class="text-white mb-1 fw-bold">Reports</h6>
-                  <p class="small text-muted mb-0 font-monospace">reports/data_processing/</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="repo-card" onclick="window.open('https://github.com/akash14102006/CipherZB160-IQ', '_blank')">
-                <i class="fa-solid fa-robot fa-2x text-success"></i>
-                <div>
-                  <h6 class="text-white mb-1 fw-bold">Models</h6>
-                  <p class="small text-muted mb-0 font-monospace">models/champion/</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="repo-card" onclick="window.open('https://github.com/akash14102006/CipherZB160-IQ', '_blank')">
-                <i class="fa-solid fa-chart-line fa-2x text-warning"></i>
-                <div>
-                  <h6 class="text-white mb-1 fw-bold">Visualizations</h6>
-                  <p class="small text-muted mb-0 font-monospace">website/assets/visualizations/</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="repo-card" onclick="window.open('https://github.com/akash14102006/CipherZB160-IQ', '_blank')">
-                <i class="fa-solid fa-database fa-2x text-info"></i>
-                <div>
-                  <h6 class="text-white mb-1 fw-bold">Datasets</h6>
-                  <p class="small text-muted mb-0 font-monospace">data/05_output/</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="repo-card" onclick="window.open('https://github.com/akash14102006/CipherZB160-IQ', '_blank')">
-                <i class="fa-solid fa-file-shield fa-2x text-danger"></i>
-                <div>
-                  <h6 class="text-white mb-1 fw-bold">Audit Files</h6>
-                  <p class="small text-muted mb-0 font-monospace">reports/model_governance/</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="repo-card" onclick="window.open('https://github.com/akash14102006/CipherZB160-IQ', '_blank')">
-                <i class="fa-solid fa-brain fa-2x" style="color: #A855F7;"></i>
-                <div>
-                  <h6 class="text-white mb-1 fw-bold">SHAP Engine</h6>
-                  <p class="small text-muted mb-0 font-monospace">reports/explainability/</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         <!-- Risk Intelligence & Explainable AI -->
         <div class="container mt-5 pt-4">
@@ -656,7 +530,7 @@
       </div>
 
       <!-- PAGE 1: COMMAND NEXUS -->
-      <div id="page-surveillance-command" style="display: none;" class="animate__animated animate__fadeIn">
+      <div id="surveillance-command" style="display: none;" class="animate__animated animate__fadeIn">
         
         <!-- FIRST COMPONENT: Enterprise Leaderboard -->
         <div class="row g-4 mb-4">
@@ -787,7 +661,6 @@
                   </a>
                 </div>
               </div>
-              </div>
             </div>
           </div>
         </div>
@@ -845,7 +718,7 @@
 
         <!-- THIRD COMPONENT: Evidence Repository & Fraud Investigation Feed -->
         <div class="row g-4 mb-4">
-          <div class="col-12 col-xl-7">
+          <div class="col-12 col-xl-7" id="evidence-repository">
             <div class="cyber-card h-100">
               <h5 class="mb-4 text-white" style="font-family: var(--font-headings); letter-spacing: 0.5px;">
                 <span style="color: var(--primary); margin-right: 6px;">//</span> EVIDENCE REPOSITORY
@@ -956,7 +829,7 @@
       </div>
 
         <!-- PAGE 2: ANALYTICS CENTERS (SINGLE MODEL FILTER VIEW) -->
-      <div id="page-analytics-centers" style="display: none;">
+      <div id="analytics-centers" style="display: none;">
         
         <!-- VISIBLE UIUX STYLE MODEL FILTER BAR -->
         <div class="cyber-card mb-4 bg-black border-secondary" style="position: sticky; top: 70px; z-index: 9999; backdrop-filter: blur(12px);">
@@ -1294,7 +1167,7 @@
 
 
       <!-- PAGE 3: RISK INTELLIGENCE -->
-      <div id="page-risk-intelligence" style="display: none;">
+      <div id="risk-intelligence" style="display: none;">
         
         <!-- Sticky Sub-Control Bar for parameters -->
         <div class="cyber-card mb-4 py-3" style="position: sticky; top: 80px; z-index: 1000; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(2, 8, 23, 0.75) !important; border: 1px solid rgba(0, 229, 176, 0.3) !important; box-shadow: 0 0 12px rgba(0, 229, 176, 0.15) !important; transition: all 0.3s ease;">
@@ -1458,7 +1331,7 @@
 
 
       <!-- PAGE 4: GOVERNANCE -->
-      <div id="page-governance" style="display: none;">
+      <div id="governance" style="display: none;">
         
         <!-- Section: Champion Framework -->
         <section id="champion-framework">

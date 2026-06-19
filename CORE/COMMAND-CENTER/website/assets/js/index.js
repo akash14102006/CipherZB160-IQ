@@ -4,11 +4,11 @@
       if (!pages.includes(tabId)) return;
 
       pages.forEach(p => {
-        const el = document.getElementById(`page-${p}`);
+        const el = document.getElementById(p);
         if (el) el.style.display = 'none';
       });
       
-      const activeEl = document.getElementById(`page-${tabId}`);
+      const activeEl = document.getElementById(tabId);
       if (activeEl) {
         activeEl.style.display = 'block';
       }
@@ -1142,7 +1142,7 @@
     // ── Enterprise Dark PDF Export ────────────────────────────────────────────────
     window.exportDarkPDF = () => {
       // Inject dark print stylesheet
-      const styleId = 'cipher-print-style';
+      const styleId = 'cipher-print-style-v2';
       const existing = document.getElementById(styleId);
       if (existing) existing.remove();
 
@@ -1170,10 +1170,10 @@
         .navbar, .modal, .offcanvas, .btn, footer, #main-footer,
         .cyber-btn, .scroll-progress-bar, .nav-tabs, .tab-pane:not(.active),
         [class*='dropdown'], .filter-panel-sidebar, #filter-chips-container,
-        .page-section:not(#page-platform-overview) { display: none !important; }
+        .page-section:not(#platform-overview) { display: none !important; }
 
         /* ── Show only platform overview for print ── */
-        #page-platform-overview { display: block !important; }
+        #platform-overview { display: block !important; }
 
         /* ── Cards ── */
         .cyber-card, .card, [class*='card'] {
@@ -1573,31 +1573,6 @@
       };
 
       const gridDiv = document.querySelector('#riskGrid');
-      riskGridApi = agGrid.createGrid(gridDiv, gridOptions);
-      if (riskGridApi && typeof riskGridApi.sizeColumnsToFit === 'function') {
-        riskGridApi.sizeColumnsToFit();
-      }
-      
-      if (window.riskData && window.riskData.length > 0) {
-        showTargetProfile(window.riskData[0]);
-      }
-    };
-
-    // Smooth scroll utility
-    window.smoothScrollTo = (targetId) => {
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    };
-
-    window.exploreArchitecture = () => {
-      // Switch to platform-overview tab first, then scroll
-      switchTab('platform-overview');
-      setTimeout(() => {
-        const el = document.getElementById('platform-architecture');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200);
     };
 
     window.openEvidenceRepository = () => {

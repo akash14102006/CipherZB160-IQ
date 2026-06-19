@@ -61,7 +61,7 @@ Enterprise banking surveillance and intelligence command center for real-time de
 
 Visual overview of high-throughput ingestion, real-time feature store, and model scoring pipeline.
 
-![Architecture Diagram](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/architecture/architecture_diagram.png)
+![Architecture Diagram](../../SHOWCASE/architecture/architecture-diagram.png)
 
 ---
 
@@ -130,7 +130,7 @@ Data ──> Signals ──> Models ──> Validation ──> Explainability �
 
 Detailed model evaluation curves, lift charts, and calibration parameters.
 
-![Model Comparison](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/REPORTS-CENTER/model-performance/model_comparison.png)
+![Model Comparison](../../SHOWCASE/screenshots/model-comparison.png)
 
 ---
 
@@ -187,19 +187,19 @@ CipherZB160-IQ/
 ## Visual Gallery
 
 ### Surveillance Command Center
-![Platform Overview](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/platform_overview.png)
+![Platform Overview](../../SHOWCASE/screenshots/platform-overview.png)
 
 ### Model Evaluation — LightGBM (Champion)
-![LightGBM Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/lightgbm_deep_dive.png)
+![LightGBM Analysis](../../SHOWCASE/screenshots/lightgbm-deep-dive.png)
 
 ### Model Evaluation — CatBoost (Challenger)
-![CatBoost Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/catboost_deep_dive.png)
+![CatBoost Analysis](../../SHOWCASE/screenshots/catboost-deep-dive.png)
 
 ### Model Evaluation — XGBoost (Challenger)
-![XGBoost Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/xgboost_deep_dive.png)
+![XGBoost Analysis](../../SHOWCASE/screenshots/xgboost-deep-dive.png)
 
 ### Model Evaluation — Isolation Forest (Baseline)
-![Isolation Forest Analysis](https://raw.githubusercontent.com/akash14102006/CipherZB160-IQ/main/VAULT/RESEARCH/technical-docs/visuals/isolation_forest_deep_dive.png)
+![Isolation Forest Analysis](../../SHOWCASE/screenshots/isolation-forest-deep-dive.png)
 
 ---
 

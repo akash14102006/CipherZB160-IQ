@@ -4,11 +4,11 @@
       if (!pages.includes(tabId)) return;
 
       pages.forEach(p => {
-        const el = document.getElementById(`page-${p}`);
+        const el = document.getElementById(p);
         if (el) el.style.display = 'none';
       });
       
-      const activeEl = document.getElementById(`page-${tabId}`);
+      const activeEl = document.getElementById(tabId);
       if (activeEl) {
         activeEl.style.display = 'block';
       }
@@ -1119,10 +1119,10 @@
         .navbar, .modal, .offcanvas, .btn, footer, #main-footer,
         .cyber-btn, .scroll-progress-bar, .nav-tabs, .tab-pane:not(.active),
         [class*='dropdown'], .filter-panel-sidebar, #filter-chips-container,
-        .page-section:not(#page-platform-overview) { display: none !important; }
+        .page-section:not(#surveillance-command) { display: none !important; }
 
         /* ── Show only platform overview for print ── */
-        #page-platform-overview { display: block !important; }
+        #surveillance-command { display: block !important; }
 
         /* ── Cards ── */
         .cyber-card, .card, [class*='card'] {
